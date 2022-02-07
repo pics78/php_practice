@@ -1,0 +1,36 @@
+{
+  "EMP_LIST": [
+    {
+      "id": "0001",
+      "name": "山田太郎",
+      "mail": "yamada@gmail.com",
+      "tel": "080-1234-4321",
+      "dept": "企画部",
+      "pjt": "testプロジェクト"
+    },
+    {
+      "id"  : "0002",
+      "name": "柴咲 一徳",
+      "mail": "shibasaki@yahoo.co.jp",
+      "tel" : "090-1212-2323",
+      "dept": "経営部",
+      "pjt": "abcdプロジェクト"
+    },
+    {
+      "id"  : "0003",
+      "name": "吉沢 さとみ",
+      "mail": "yoshizawa@gmail.com",
+      "tel" : "090-9876-5432",
+      "dept": "営業部",
+      "pjt": "1234プロジェクト"
+    },
+    {
+      "id"  : "0004",
+      "name": "宮川 雅功",
+      "mail": "miyagawa@yahoo.co.jp",
+      "tel" : "080-5432-3456",
+      "dept": "人事部",
+      "pjt": "hogehogeプロジェクト"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet">
+        <link href="$$PHP-app-root$$/style/css/common.css" rel="stylesheet">
+        <link href="$$PHP-app-root$$/style/css/top.css" rel="stylesheet">
+        <title>NECO HTML/CSS Training | ログインページ</title>
+    </head>
+    <body>
+        <header>
+                <h1>NECO HTML/CSS Training</h1>
+        </header>
+        <div class="contents">
+            <div class="description">
+                <h2>IDとパスワードを入力してください。</h2>
+            </div>
+            <div>
+                <form id="loginForm" name="loginForm" action="auth/login.php" method="post">
+                    <p class="err-msg $$PHP-check-err$$">IDもしくはパスワードが間違っています。</p>
+                    <input type="text" name="login[id]" placeholder="ID">
+                    <br>
+                    <input type="password" name="login[pass]" placeholder="PASSWORD">
+                    <div class="btn-wrap">
+                        <a href="javascript:loginForm.submit()" class="btn btn-border">LOGIN</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <footer>
+            <h1>test app</h1>
+        </footer>
+    </body>
+</html>
