@@ -1,5 +1,4 @@
-# PHP TEST APP
+# PHP SAMPLE EMPLOYEE MANAGEMENT APP
 
-今さらながらのPHP勉強会で作ったものを置いておきます。  
-やりたいように作ったので定石とはかけ離れている可能性があります。  
-CSSは壊滅的です。。
+PHPを使ったサンプルアプリ(社員管理)  
+HTML/CSSはシンプルなものにしています。
