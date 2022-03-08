@@ -2,68 +2,82 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet">
-        <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <link href="$$PHP-app-root$$/style/css/common.css" rel="stylesheet">
-        <link href="$$PHP-app-root$$/style/css/detail.css" rel="stylesheet">
+        <link href="$$PHP-app-root$$/html/style/common.css" rel="stylesheet">
+        <link href="$$PHP-app-root$$/html/style/logined.css" rel="stylesheet">
+        <link href="$$PHP-app-root$$/html/style/detail.css" rel="stylesheet">
         <title>NECO HTML/CSS Training | 社員詳細ページ</title>
     </head>
     <body>
-        <header>
-            <h1>NECO HTML/CSS Training</h1>
-            <div class="menu">
-                <a class="btn btn-logout" href="$$PHP-app-root$$/php/auth/logout.php">ログアウト</a>
+        <div class="container">
+            <div class="description --in-logined">
+                <h1>社員管理システム</h1>
+                <p class="page-title">社員詳細</p>
+                <p class="status">$$PHP-login-user$$がログイン中..</p>
             </div>
-        </header>
-        <div class="contents">
-            <div class="description">
-                <h2>社員詳細</h2>
+            <div class="clear"></div>
+            <div class="btn-area">
+                <div class="--for-emp">
+                    <a href="javascript:document.empUpdateForm.updateAction.click()" class="btn btn-action $$PHP-btn-for-mgr$$">登録</a>
+                    <a href="javascript:document.empDeleteForm.deleteAction.click()" class="btn btn-action $$PHP-btn-for-mgr$$">削除</a>
+                </div>
+                <a href="../auth/logout.php" class="btn btn-logout">ログアウト</a>
             </div>
-            <div class="emp-info">
-                <div class="emp-icon">
-                    <img src="$$PHP-app-root$$/style/img/sample_icon.png" alt="icon">
-                </div>
-                <div class="action-icons">
-                    <i class="fas fa-envelope fa-2x"></i>
-                    <i class="fas fa-phone fa-2x"></i>
-                    <i class="fas fa-download fa-2x"></i>
-                </div>
+            <div class="contents">
+              <form name="empUpdateForm" method="post">
                 <table>
                     <tr>
-                        <th>ID</th>
-                        <td>$$PHP-emp-id$$</td>
+                        <td nowrap class="item-name">社員番号</td>
+                        <td nowrap id="emp-no" class="item-val"><input type="text" name="edit[shain_bango]" value="$$PHP-target-no$$" readonly></td>
                     </tr>
                     <tr>
-                        <th>NAME</th>
-                        <td>$$PHP-emp-name$$</td>
+                        <td nowrap class="item-name">パスワード</td>
+                        <td nowrap class="item-val"><input type="text" name="edit[password]" value="$$PHP-target-pass$$" required maxlength="8" pattern="^(([-0-9A-Za-z_]{1,8})|\*\*\*\*\*\*\*\*)$" title="半角英数字およびハイフンとアンダーバーのみ使用可。"></td>
                     </tr>
                     <tr>
-                        <th>MAIL</th>
-                        <td>$$PHP-emp-mail$$</td>
+                        <td nowrap class="item-name">社員名</td>
+                        <td nowrap class="item-val"><input type="text" name="edit[shain_mei]" value="$$PHP-target-name$$" required maxlength="20"></td>
                     </tr>
                     <tr>
-                        <th>TEL</th>
-                        <td>$$PHP-emp-tel$$</td>
+                        <td nowrap class="item-name">所属部</td>
+                        <td nowrap class="item-val">
+                          <select name="edit[shain_shozokubu]">
+                            $$PHP-target-dept-options$$
+                          </select>
+                        </td>
                     </tr>
                     <tr>
-                        <th>DEPT.</th>
-                        <td>$$PHP-emp-dept$$</td>
+                        <td nowrap class="item-name">管理者</td>
+                        <td nowrap class="item-val"><input type="checkbox" name="edit[manager_flg]" $$PHP-target-mgr-checked$$></td>
                     </tr>
                     <tr>
-                        <th>PJT.</th>
-                        <td>$$PHP-emp-pjt$$</td>
+                        <td nowrap class="item-name">入社年月日</td>
+                        <td nowrap class="item-val"><input type="date" name="edit[ent-date]" value="$$PHP-target-ent-date$$" required></td>
                     </tr>
+                    <tr>
+                        <td nowrap class="item-name">退社年月日</td>
+                        <td nowrap class="item-val"><input type="date" name="edit[lev-date]" value="$$PHP-target-lev-date$$"></td>
+                    </tr>
+                    <tr>
+                        <td nowrap class="item-name">住所</td>
+                        <td nowrap class="item-val"><textarea name="edit[shain_jusho]" rows="5" cols="33" maxlength="255">$$PHP-target-address$$</textarea></td>
+                    </tr>
+                    <input name="original[shain_mei]" type="hidden" value="$$PHP-target-name$$">
+                    <input name="original[shain_shozokubu]" type="hidden" value="$$PHP-target-dept$$">
+                    <input name="original[manager_flg]" type="hidden" value="$$PHP-target-mgr-flg$$">
+                    <input name="original[ent-date]" type="hidden" value="$$PHP-target-ent-date$$">
+                    <input name="original[lev-date]" type="hidden" value="$$PHP-target-lev-date$$">
+                    <input name="original[shain_jusho]" type="hidden" value="$$PHP-target-address$$">
+                    <input name="updateAction" type="submit" class="hide" formaction="../actions/update.php">
                 </table>
+              </form>
+              <form name="empDeleteForm" method="post" class="hide">
+                <input type="hidden" name="shain_bango" value="$$PHP-target-no$$">
+                <input name="deleteAction" type="submit" class="hide" formaction="../actions/delete.php">
+              </form>
             </div>
-            <div class="bottom-menu">
-                <a class="btn btn-back" href="$$PHP-app-root$$/php/list.php">戻る</a>
+            <div class="btn-area $$PHP-btn-for-mgr$$">
+              <a href="list.php" class="btn btn-back">戻る</a>
             </div>
         </div>
-        <footer>
-            <h1>test app</h1>
-        </footer>
     </body>
 </html>

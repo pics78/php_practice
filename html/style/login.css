@@ -1,0 +1,29 @@
+.description.--in-login {
+    text-align: center;
+}
+.description.--in-login .page-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+p.err-msg {
+    width: 100%;
+    text-align: center;
+    color: red;
+    margin-bottom: 0;
+}
+#loginForm input {
+    height: 1.5rem;
+    width: 15rem;
+    border: 1px solid;
+    border-radius: 0.3rem;
+}
+#loginForm .input-label {
+    margin-left: 0.4rem;
+    margin-bottom: 0.1rem;
+}
+.btn-login {
+    background-color: #d0d0d0;
+    font-size: 1.0rem;
+    margin: 2rem;
+    padding: 1rem 1.5rem;
+}

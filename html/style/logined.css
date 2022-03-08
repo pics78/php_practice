@@ -1,0 +1,28 @@
+.description.--in-logined .page-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-left: 1rem;
+    float: left;
+}
+.description .status {
+    float: right;
+    margin-right: 2rem;
+}
+.clear {
+    clear: left;
+}
+.contents table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 2rem 1rem;
+}
+.btn-area .--for-emp {
+    margin: 0 auto;
+}
+.btn-logout {
+    background-color: #bddcff;
+    font-size: 0.8rem;
+    margin: 0 3rem;
+    padding: 0.5rem 1.0rem;
+}

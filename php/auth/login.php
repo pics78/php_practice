@@ -2,28 +2,78 @@
 
   // ログイン認証処理
 
-  define('LOGIN_ID', 'testid');        // ID
-  define('LOGIN_PASS', 'testpass'); // パスワード
+  require_once __DIR__.'/../const/httpConst.php';
+  require_once __DIR__.'/../const/sqlConst.php';
+  require_once __DIR__.'/../const/sessionConst.php';
+  require_once __DIR__.'/../services/sessionService.php';
+  require_once __DIR__.'/../connect/dbConnect.php';
+  require_once __DIR__.'/../connect/dbConnectException.php';
+  require_once __DIR__.'/../utils/sqlUtil.php';
 
-  if (isset($_POST['login'])) {
-    $loginData = $_POST['login'];
-    if ($loginData['id'] == LOGIN_ID && $loginData['pass'] == LOGIN_PASS) {
+  if (isset($_POST[INPUT_DATA])) {
+    $loginData = $_POST[INPUT_DATA];
+    $userNo    = $loginData[NO];
+    $userPass  = $loginData[PASS];
+    
+    $hashedPass = null;
+    try {
+      $hashedPass = getHashedPass($userNo);
+    } catch (DBConnectException $e) {
+      $e->resetApp();
+      exit;
+    }
+
+    $isSuccess = $hashedPass != null ? password_verify($userPass, $hashedPass) : false;
+
+    if ($isSuccess) {
       // ログイン成功
-      $DependentModules['utils'] = array('sessionUtil');
-      require 'loadModule.php';
-
-      if (reloadLoginStatus() != null) {
-        // すでにログイン中の場合は前の情報を破棄
-        resetSession();
+      $sessionData = null;
+      try {
+        $sessionData = getSessionData($userNo);
+      } catch (DBConnectException $e) {
+        $e->resetApp();
+        exit;
       }
 
-      saveUserId(LOGIN_ID);
-      header('Location: ../list.php');
+      $session = new SessionService();
+      $session->setSessionData($sessionData);
+
+      if ($sessionData[MGRFLG]) {
+        header('Location: ../routes/list.php');
+      } else {
+        // 管理者以外は自分の詳細ページへ
+        header('Location: ../routes/detail.php?no='.$sessionData[NO]);
+      }
       exit;
     }
   }
+  
+  // ログイン失敗
+  // ログイン画面に戻ってエラー表示
+  header('Location: ../routes/login.php?err='.LOGIN_ERR);
 
-  // POSTデータがない または ログイン情報ミス
-  header('Location: ../top.php?err=LE');
+  function getHashedPass($userNo) {
+    $stmt = DBConnect::stream('prepare',
+      SELECT(PASS).
+      FROM(TNAME).
+      WHERE(IS_MATCH(NO))
+    );
+    $stmt->bindParam(NO, $userNo, PDO::PARAM_INT);
+    $stmt->execute();
+
+    return $stmt->rowCount() == 1 ? $stmt->fetch(PDO::FETCH_COLUMN) : null;
+  }
+
+  function getSessionData($userNo) {
+    $stmt = DBConnect::stream('prepare',
+      SELECT(NO, NAME, MGRFLG).
+      FROM(TNAME).
+      WHERE(IS_MATCH(NO))
+    );
+    $stmt->bindParam(NO, $userNo, PDO::PARAM_INT);
+    $stmt->execute();
+
+    return $stmt->rowCount() == 1 ? $stmt->fetch(PDO::FETCH_ASSOC) : null;
+  }
 
 ?>

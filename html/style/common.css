@@ -1,0 +1,54 @@
+body {
+    background: #f9f9f9;
+}
+body, input, select, textarea {
+    font-family: "MS Pゴシック",sans-serif;
+}
+.container {
+    width: 640px;
+    margin: 0 auto;
+    background: white;
+    color: black;
+    padding: 1rem;
+}
+.description {
+    margin: 2rem auto;
+}
+.description h1 {
+    font-size: 1.2rem;
+}
+.contents {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.btn-area {
+    display: flex;
+    justify-content: center;
+}
+.btn {
+    line-height: 0.8rem;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+}
+.btn:hover {
+    color: #fff;
+    background: #343433;
+}
+.hide {
+    display: none;
+}
