@@ -1,0 +1,75 @@
+#year-selector select {
+    padding: 0.4rem;
+    color: #0098ef;
+    font-weight: bold;
+    border: 1.5px solid #0098ef;
+}
+.contents hr {
+    width: 75%;
+    background-color: #83c2e2;
+    height: 1.3px;
+    border: none;
+}
+#evalFormWrap {
+    width: 100%;
+    margin: 3rem 0;
+}
+#target-user {
+    width: 100%;
+    text-align: center;
+}
+#target-user #emp-no {
+    margin-right: 0.6rem;
+}
+#target-user #emp-no:before {
+    content: "社員番号：";
+}
+#target-user #emp-name {
+    margin-left: 0.6rem;
+}
+#target-user #emp-name:before {
+    content: "社員名：";
+}
+.form-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+.form-area textarea {
+    resize: vertical;
+    border: 2px solid #32a6e1;
+}
+.form-area textarea:disabled {
+    background: #f0f0f0;
+    resize: none;
+    border: 1px solid #000000;
+}
+.form-area p {
+    margin: 0;
+}
+.form-area p.--enabled {
+  color: #32a6e1;
+  font-weight: bold;
+}
+.form-area p.evaluator {
+    font-size: small;
+}
+.form-area p.evaluator:before {
+    content: "評価者：";
+}
+.form-area a {
+    margin-top: 0.5rem;
+}
+.form-area a.--updated:after {
+    content: "保存されました。";
+    position: absolute;
+    right: -8rem;
+}
+.form-area a.--updated:hover:after {
+  content: "保存されました。";
+  position: absolute;
+  right: -8rem;
+  color: black;
+}

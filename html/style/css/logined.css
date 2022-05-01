@@ -1,0 +1,40 @@
+.description.--in-logined .page-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-left: 1rem;
+    float: left;
+}
+.description .status {
+    float: right;
+    margin-right: 2rem;
+}
+.clear {
+    clear: left;
+}
+.contents table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 2rem 1rem;
+}
+.contents table td.--no-edit {
+  background: #f0f0f0;
+}
+.contents table input:read-only,
+.contents table input:disabled,
+.contents table select:disabled,
+.contents table textarea:disabled {
+  cursor: default;
+  color: black!important;
+}
+.contents table select:disabled {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.btn-area .--for-emp {
+    margin: 0 auto;
+}
+.btn.logout {
+    margin: 0 3rem;
+}

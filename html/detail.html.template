@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <link href="$$PHP-app-root$$/html/style/css/common.css" rel="stylesheet">
+        <link href="$$PHP-app-root$$/html/style/css/logined.css" rel="stylesheet">
+        <link href="$$PHP-app-root$$/html/style/css/detail.css" rel="stylesheet">
+        <title>NECO HTML/CSS Training | 社員詳細ページ</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="description --in-logined">
+                <h1>社員管理システム</h1>
+                <p class="page-title">社員詳細</p>
+                <p class="status">$$PHP-login-user$$がログイン中..</p>
+            </div>
+            <div class="clear"></div>
+            <div class="btn-area">
+                <div class="--for-emp">
+                    <a href="javascript:document.empUpdateForm.updateAction.click()" class="btn --common large $$PHP-nomgr-hide$$">登録</a>
+                    <a href="javascript:document.empDeleteForm.deleteAction.click()" class="btn --common large $$PHP-del-hide$$">削除</a>
+                    <a href="javascript:document.createEvalForm.createEvalAction.click()" class="btn --common large $$PHP-member-hide$$ $$PHP-new-hide$$ $$PHP-create-eval-disabled$$">新規評価作成</a> 
+                </div>
+                <a href="../auth/logout.php" class="btn --common middle logout">ログアウト</a>
+            </div>
+            <div class="contents">
+              <form name="empUpdateForm" method="post">
+                <table>
+                    <tr>
+                        <td nowrap class="item-name">社員番号</td>
+                        <td nowrap id="emp-no" class="item-val"><input type="text" name="edit[emp_no]" value="$$PHP-target-no$$" readonly></td>
+                    </tr>
+                    <tr>
+                        <td nowrap class="item-name">パスワード</td>
+                        <td nowrap class="item-val"><input type="text" name="edit[pass]" value="$$PHP-target-pass$$" required maxlength="8" pattern="^(([-0-9A-Za-z_]{1,8})|\*\*\*\*\*\*\*\*)$" title="半角英数字およびハイフンとアンダーバーのみ使用可。" $$PHP-nomgr-disabled$$></td>
+                    </tr>
+                    <tr>
+                        <td nowrap class="item-name">社員名</td>
+                        <td nowrap class="item-val"><input type="text" name="edit[emp_name]" value="$$PHP-target-name$$" required maxlength="20" $$PHP-nomgr-disabled$$></td>
+                    </tr>
+                    <tr>
+                        <td nowrap class="item-name">所属部</td>
+                        <td nowrap class="item-val">
+                          <select name="edit[dept_id]" required $$PHP-nomgr-disabled$$>
+                            <option hidden>選択してください</option>
+                            $$PHP-target-dept-options$$
+                          </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td nowrap class="item-name">権限</td>
+                        <td nowrap class="item-val">
+                          <select name="edit[auth_flg]" required $$PHP-nomgr-disabled$$>
+                            <option hidden>選択してください</option>
+                            $$PHP-target-auth-options$$
+                          </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td nowrap class="item-name">入社年月日</td>
+                        <td nowrap class="item-val"><input type="date" name="edit[ent-date]" value="$$PHP-target-ent-date$$" required $$PHP-nomgr-disabled$$></td>
+                    </tr>
+                    <tr>
+                        <td nowrap class="item-name">退社年月日</td>
+                        <td nowrap class="item-val"><input type="date" name="edit[lev-date]" value="$$PHP-target-lev-date$$" $$PHP-nomgr-disabled$$></td>
+                    </tr>
+                    <tr>
+                        <td nowrap class="item-name">住所</td>
+                        <td nowrap class="item-val"><textarea name="edit[address]" rows="5" cols="33" maxlength="255" $$PHP-nomgr-disabled$$>$$PHP-target-address$$</textarea></td>
+                    </tr>
+                    <input name="updateAction" type="submit" class="hide" formaction="../actions/$$PHP-form-action-name$$.php">
+                </table>
+              </form>
+              <form name="empDeleteForm" method="post" class="hide">
+                <input type="hidden" name="emp_no" value="$$PHP-target-no$$">
+                <input name="deleteAction" type="submit" class="hide" formaction="../actions/delete.php">
+              </form>
+              <form name="createEvalForm" method="post" class="hide">
+                <input type="hidden" name="emp_no" value="$$PHP-target-no$$">
+                <input type="hidden" name="year" value="$$PHP-current-year$$">
+                <input name="createEvalAction" type="submit" class="hide" formaction="../actions/create.php">
+              </form>
+            </div>
+            <div class="btn-area">
+              <a href="" class="btn --common large js-modal-open $$PHP-new-hide$$">評価年度選択</a>
+              <a href="list.php" class="btn --common large $$PHP-member-hide$$">戻る</a>
+            </div>
+        </div>
+        <div class="modal js-modal">
+            <div class="modal-bg js-modal-close"></div>
+            <div class="modal-content">
+                <p>評価年度を選択してください。</p>
+                <div class="modal-selector-area">
+                  <a class="selector $$PHP-eval-year1-disabled$$" href="evaluation.php?no=$$PHP-target-no$$&y=$$PHP-eval-year1$$">$$PHP-eval-year1$$年</a>
+                  <a class="selector $$PHP-eval-year2-disabled$$" href="evaluation.php?no=$$PHP-target-no$$&y=$$PHP-eval-year2$$">$$PHP-eval-year2$$年</a>
+                  <a class="selector $$PHP-eval-year3-disabled$$" href="evaluation.php?no=$$PHP-target-no$$&y=$$PHP-eval-year3$$">$$PHP-eval-year3$$年</a>
+                </div>
+                <a class="btn --common large js-modal-close" href="">閉じる</a>
+            </div>
+        </div>
+    </body>
+    <script src="$$PHP-app-root$$/html/style/public/jquery-3.6.0.min.js"></script>
+    <script src="$$PHP-app-root$$/html/style/js/app.js"></script>
+</html>

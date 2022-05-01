@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <link href="$$PHP-app-root$$/html/style/css/common.css" rel="stylesheet">
+        <link href="$$PHP-app-root$$/html/style/css/logined.css" rel="stylesheet">
+        <link href="$$PHP-app-root$$/html/style/css/evaluation.css" rel="stylesheet">
+        <title>社員管理システム | 評価情報ページ</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="description --in-logined">
+                <h1>社員管理システム</h1>
+                <p class="page-title">評価情報($$PHP-target-year$$年度)</p>
+                <p class="status">$$PHP-login-user$$がログイン中..</p>
+            </div>
+            <div class="clear"></div>
+            <div class="btn-area">
+                <div class="--for-emp">
+                    <div id="year-selector">
+                        <select>
+                            $$PHP-year-options$$
+                        </select>
+                    </div>
+                </div>
+                <a href="../auth/logout.php" class="btn --common middle logout">ログアウト</a>
+            </div>
+            <div class="contents">
+                <div id="evalFormWrap">
+                    <div id="target-user">
+                        <span id="emp-no">$$PHP-target-no$$</span><span id="emp-name">$$PHP-target-name$$</span>
+                    </div>
+                    <input id="evaluator-no" type="hidden" value="$$PHP-evaluator-no$$">
+                    <input id="target-year" type="hidden" value="$$PHP-target-year$$">
+                    <hr>
+                    <div class="form-area">
+                        <p>目標</p>
+                        <textarea id="goalInput" name="goal" rows="5" cols="50" maxlength="255" $$PHP-nooneself-disabled$$>$$PHP-target-goal$$</textarea>
+                        <a class="btn --common small $$PHP-nooneself-hide$$">更新</a>
+                    </div>
+                        <div class="form-area">
+                        <p>上期実績</p>
+                        <textarea id="firstResultInput" name="first_result" rows="5" cols="50" maxlength="255" $$PHP-nooneself-disabled$$>$$PHP-target-first-result$$</textarea>
+                        <a class="btn --common small $$PHP-nooneself-hide$$">更新</a>
+                    </div>
+                    <div class="form-area">
+                        <p>上期評価</p>
+                        <textarea id="firstEvalInput" name="first_eval" rows="5" cols="50" maxlength="255" $$PHP-noeval-disabled$$>$$PHP-target-first-eval$$</textarea>
+                        <p class="evaluator $$PHP-is-first-evaluator-hide$$">$$PHP-target-first-evaluator$$</p>
+                        <a class="btn --common small $$PHP-noeval-hide$$">更新</a>
+                    </div>
+                    <div class="form-area">
+                        <p>下期実績</p>
+                        <textarea id="secondResultInput" name="second_result" rows="5" cols="50" maxlength="255" $$PHP-nooneself-disabled$$>$$PHP-target-second-result$$</textarea>
+                        <a class="btn --common small $$PHP-nooneself-hide$$">更新</a>
+                    </div>
+                    <div class="form-area">
+                        <p>下期評価</p>
+                        <textarea id="secondEvalInput" name="second_eval" rows="5" cols="50" maxlength="255" $$PHP-noeval-disabled$$>$$PHP-target-second-eval$$</textarea>
+                        <p class="evaluator $$PHP-is-second-evaluator-hide$$">$$PHP-target-second-evaluator$$</p>
+                        <a class="btn --common small $$PHP-noeval-hide$$">更新</a>
+                    </div>
+                    <div class="form-area">
+                        <p>全体実績</p>
+                        <textarea id="totalResultInput" name="total_result" rows="5" cols="50" maxlength="255" $$PHP-nooneself-disabled$$>$$PHP-target-total-result$$</textarea>
+                        <a class="btn --common small $$PHP-nooneself-hide$$">更新</a>
+                    </div>
+                    <div class="form-area">
+                        <p>全体評価</p>
+                        <textarea id="totalEvalInput" name="total_eval" rows="5" cols="50" maxlength="255" $$PHP-noeval-disabled$$>$$PHP-target-total-eval$$</textarea>
+                        <p class="evaluator $$PHP-is-total-evaluator-hide$$">$$PHP-target-total-evaluator$$</p>
+                        <a class="btn --common small $$PHP-noeval-hide$$">更新</a>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div class="btn-area">
+                <a href="detail.php?no=$$PHP-target-no$$" class="btn --common large">戻る</a>
+            </div>
+        </div>
+    </body>
+    <script src="$$PHP-app-root$$/html/style/public/jquery-3.6.0.min.js"></script>
+    <script src="$$PHP-app-root$$/html/style/js/app.js"></script>
+</html>

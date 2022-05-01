@@ -1,18 +1,10 @@
 <?php
 
-  $DependentModules['utils'] = array('sessionUtil');
-  require 'loadModule.php';
+  require_once __DIR__.'/../services/sessionService.php';
 
-  $status = reloadLoginStatus();
+  $session = new SessionService();
+  $session->destroy();
 
-  // ログアウト処理
-  if ($status != null) {
-    removeSession();
-    header('Location: ../top.php');
-    exit;
-  }
-
-  // そもそもログインしていない
-  header('Location: ../top.php');
+  header('Location: ../routes/login.php');
 
 ?>

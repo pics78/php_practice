@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <link href="$$PHP-app-root$$/html/style/css/common.css" rel="stylesheet">
+        <link href="$$PHP-app-root$$/html/style/css/login.css" rel="stylesheet">
+        <title>NECO HTML/CSS Training | ログインページ</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="description --in-login">
+                <h1>社員管理システム</h1>
+                <p class="page-title">ログイン画面</p>
+            </div>
+            <div class="contents">
+                <p class="err-msg $$PHP-check-err$$">IDもしくはパスワードが間違っています。</p>
+                <form id="loginForm" name="loginForm" action="../auth/login.php" method="post">
+                    <p class="input-label">社員番号</p>
+                    <input type="text" name="login[no]">
+                    <p class="input-label">パスワード</p>
+                    <input type="password" name="login[pass]">
+                    <div class="btn-area">
+                        <a href="javascript:loginForm.submit()" class="btn login">ログイン</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

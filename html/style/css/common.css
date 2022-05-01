@@ -1,0 +1,118 @@
+body {
+    background: #f9f9f9;
+}
+body, input, select, textarea {
+    font-family: "MS Pゴシック",sans-serif;
+}
+.container {
+    width: 640px;
+    margin: 0 auto;
+    background: white;
+    color: black;
+    padding: 1rem;
+}
+.description {
+    margin: 2rem auto;
+}
+.description h1 {
+    font-size: 1.2rem;
+}
+.contents {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.btn-area {
+    display: flex;
+    justify-content: center;
+}
+.btn {
+    line-height: 0.8rem;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+}
+.btn:hover {
+    color: #fff;
+    background: #343433!important;
+}
+.btn.--common {
+    background-color: #bddcff;
+    font-size: 0.8rem;
+}
+.btn.--common.small {
+    padding: 0.3rem 0.9rem;
+    font-size: small;
+}
+.btn.--common.middle {
+    padding: 0.5rem 1.0rem;
+}
+.btn.--common.large {
+    margin: 0 1rem;
+    padding: 0.5rem 1.5rem;
+}
+.btn.--common.disabled {
+    pointer-events: none;
+    border: 1px solid #858585;
+    color: #858585;
+    background: #ebebeb;
+}
+.hide {
+    display: none;
+}
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.modal-bg {
+    background: rgba(167, 167, 167, 0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+}
+.modal-content {
+    background: #fff;
+    left: 50%;
+    padding: 2rem;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 280px;
+    text-align: center;
+    border: 1.5px solid #000;
+}
+.modal-selector-area {
+    margin: 1.2rem 0;
+}
+.modal-selector-area a {
+    display: table;
+    margin: 0.8rem auto;
+}
+a.selector {
+    text-decoration: none;
+    border: 1px solid #0077b8;
+    color: #0077b8;
+    padding: 0.1rem 0.3rem;
+}
+a.selector.disabled {
+    pointer-events: none;
+    border: 1px solid #858585;
+    color: #858585;
+}

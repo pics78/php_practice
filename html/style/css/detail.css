@@ -1,0 +1,39 @@
+.contents table .item-name {
+    background: #d0d0d0;
+}
+.contents table td {
+    padding: 0.5rem;
+    border: solid 1px #778ca3;
+}
+.contents table td#emp-no {
+    background: #f0f0f0;
+}
+.contents table td input[type="text"],
+.contents table td input[type="date"],
+.contents table td select,
+.contents table td textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    background: none;
+}
+.contents table td textarea {
+    resize: none;
+}
+.contents table td input[type="checkbox"] {
+    padding: 0;
+    margin: 0;
+    accent-color: black;
+    width: unset!important;
+}
+.contents table td input:focus,
+.contents table td select:focus,
+.contents table td textarea:focus {
+    outline: none;
+}
+.btn-action, .btn-back {
+    background-color: #bddcff;
+    font-size: 0.8rem;
+    margin: 0 1rem;
+    padding: 0.5rem 1.5rem;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <link href="$$PHP-app-root$$/html/style/css/common.css" rel="stylesheet">
+        <link href="$$PHP-app-root$$/html/style/css/logined.css" rel="stylesheet">
+        <link href="$$PHP-app-root$$/html/style/css/list.css" rel="stylesheet">
+        <title>NECO HTML/CSS Training | 社員一覧ページ</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="description --in-logined">
+                <h1>社員管理システム</h1>
+                <p class="page-title">社員一覧</p>
+                <p class="status">$$PHP-login-user$$がログイン中..</p>
+            </div>
+            <div class="clear"></div>
+            <div class="btn-area">
+                <div class="--for-emp">
+                  <a href="detail.php" class="btn --common middle $$PHP-nomgr-hide$$">新規登録</a>
+                </div>
+                <a href="../auth/logout.php" class="btn --common middle logout">ログアウト</a>
+            </div>
+            <div class="contents">
+                <table>
+                    <tr>
+                        <th nowrap>社員番号</th>
+                        <th nowrap>社員名</th>
+                        <th nowrap>所属部</th>
+                        <th nowrap>入社年</th>
+                    </tr>
+                    $$PHP-emp-trs$$
+                </table>
+            </div>
+        </div>
+        <script type="text/javascript">
+            let goDetail = id => window.location.href = 'detail.php?no=' + id;
+        </script>
+    </body>
+</html>
